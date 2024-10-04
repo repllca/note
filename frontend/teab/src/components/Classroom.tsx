@@ -7,7 +7,7 @@ const Classroom: React.FC = () => {
   const renderDesk = (position: [number, number, number]) => {
     return (
       <mesh position={position}>
-        <boxGeometry args={[1.5, 0.1, 1}] />
+        <boxGeometry args={[1.5, 0.1, 1]} /> {/* 修正は不要 */}
         <meshStandardMaterial color="brown" />
       </mesh>
     );
@@ -17,7 +17,7 @@ const Classroom: React.FC = () => {
   const renderChair = (position: [number, number, number]) => {
     return (
       <mesh position={position}>
-        <boxGeometry args={[0.5, 0.1, 0.5]} />
+        <boxGeometry args={[0.5, 0.1, 0.5]} /> {/* 修正は不要 */}
         <meshStandardMaterial color="darkblue" />
       </mesh>
     );
@@ -63,4 +63,5 @@ const Classroom: React.FC = () => {
 };
 
 export default Classroom;
+
 

@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+html, body, #root, canvas {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: block;
+  overflow: hidden; /* スクロールバーを隠す */
+}

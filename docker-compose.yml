@@ -6,7 +6,7 @@ services:
       - NODE_ENV=development
     volumes:
       - ./frontend/:/usr/src/app/
-    command: sh -c 'cd teab && yarn start'
+    # command: sh -c 'cd teab && yarn start'
     ports:
       - 7000:7000
     tty: true
