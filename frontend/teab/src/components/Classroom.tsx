@@ -1,27 +1,20 @@
 import React from 'react';
-import { useRef } from 'react';
 import { Mesh } from 'three';
 
-const Classroom: React.FC = () => {
-  // 机を描画する関数
-  const renderDesk = (position: [number, number, number]) => {
-    return (
-      <mesh position={position}>
-        <boxGeometry args={[1.5, 0.1, 1]} /> {/* 修正は不要 */}
-        <meshStandardMaterial color="brown" />
-      </mesh>
-    );
-  };
+const Classroom: React.FC<{ editorContent: string }> = ({ editorContent }) => {
+  const renderDesk = (position: [number, number, number]) => (
+    <mesh position={position}>
+      <boxGeometry args={[1.5, 0.1, 1]} />
+      <meshStandardMaterial color="brown" />
+    </mesh>
+  );
 
-  // 椅子を描画する関数
-  const renderChair = (position: [number, number, number]) => {
-    return (
-      <mesh position={position}>
-        <boxGeometry args={[0.5, 0.1, 0.5]} /> {/* 修正は不要 */}
-        <meshStandardMaterial color="darkblue" />
-      </mesh>
-    );
-  };
+  const renderChair = (position: [number, number, number]) => (
+    <mesh position={position}>
+      <boxGeometry args={[0.5, 0.1, 0.5]} />
+      <meshStandardMaterial color="darkblue" />
+    </mesh>
+  );
 
   return (
     <>
@@ -63,5 +56,6 @@ const Classroom: React.FC = () => {
 };
 
 export default Classroom;
+
 
 

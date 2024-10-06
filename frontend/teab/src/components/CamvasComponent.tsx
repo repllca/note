@@ -1,23 +1,36 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei'; // カメラの操作をサポートするコンポーネント
-import Classroom from './Classroom'; // 教室のコンポーネントをインポート
-import TeacherRobot from './TeacherRobot';
-// それぞれの環境設定を行う 
+import { OrbitControls } from '@react-three/drei';
+import Classroom from './Classroom';
+import TeacherRobot from './TeacherRobot'; 
+import EditorPlane from './EditorPlane';
+import EditorText from './EditorText'; 
+
 const CanvasComponent: React.FC = () => {
+  const editorContent = 'sibagaki'; // 編集テキスト
+
   return (
     <Canvas>
-      {/* 環境光を追加 */}
+      {/* 環境光 */}
       <ambientLight intensity={0.5} />
-      {/* 指向性光を追加 */}
+      {/* 指向性光 */}
       <directionalLight position={[0, 10, 5]} intensity={1.5} />
-      {/* 教室コンポーネントを描画 */}
-      <Classroom />
+      
+      {/* 教室の描画 */}
+      <Classroom editorContent={editorContent} />
+      
+      {/* 教師ロボットの描画 */}
       <TeacherRobot position={[0, 0, 0]} />
-      {/* カメラ操作のためのOrbitControls */}
+      
+      {/* エディタ平面の追加 */}
+      <EditorPlane position={[0, 0.5, -2]} /> {/* エディタの位置を調整 */}
+      <EditorText text={editorContent} position={[0, 1, -2]} /> {/* テキストの位置を調整 */}
+      
+      {/* カメラ操作 */}
       <OrbitControls />
     </Canvas>
   );
 };
 
 export default CanvasComponent;
+
